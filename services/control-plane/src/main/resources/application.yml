@@ -1,0 +1,23 @@
+server:
+  port: ${CONTROL_PLANE_PORT:8081}
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:agent_governance}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: none   # schema is owned by db/migrations, not Hibernate auto-DDL
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: false      # migrations run via docker-entrypoint-initdb.d for local dev;
+                         # flip this on and point at db/migrations once deploying for real
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

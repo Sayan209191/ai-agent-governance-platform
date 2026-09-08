@@ -1,0 +1,29 @@
+# Node / frontend
+node_modules/
+.next/
+out/
+frontend/.env.local
+
+# Java / control-plane
+services/control-plane/target/
+services/control-plane/.mvn/
+*.class
+
+# Go / gateway
+services/gateway/bin/
+services/gateway/*.exe
+
+# Python / agent-runner
+services/agent-runner/__pycache__/
+services/agent-runner/*.pyc
+services/agent-runner/.venv/
+
+# Env & secrets
+.env
+*.env.local
+!.env.example
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
